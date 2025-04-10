@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -62,7 +63,7 @@
     <div id="overlay" class="overlay"></div>
     <iframe id="spotify-player" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
   </div>
-  <button disabled>Jetzt hören</button>
+  <button onclick="startSong()">Jetzt hören</button>
 
   <script>
     function getSpotifyTrackUrl() {
@@ -72,11 +73,11 @@
       return `https://open.spotify.com/embed/track/${trackUrl.split("track/").pop().split("?")[0]}`;
     }
 
-    window.onload = () => {
+    function startSong() {
       const iframe = document.getElementById("spotify-player");
       const url = getSpotifyTrackUrl();
       if (url) iframe.src = url;
-    };
+    }
   </script>
 </body>
 </html>
